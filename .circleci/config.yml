@@ -36,7 +36,7 @@ aliases:
 
   - &restore-cache-gradle
     keys:
-      - v1-gradle-{{ .Branch }}-{{ checksum "build.gradle" }}-{{ checksum "ReactAndroid/build.gradle" }}
+    - v2-gradle-{{ .Branch }}-{{ checksum "build.gradle" }}-{{ checksum "ReactAndroid/build.gradle" }}
       # Fallback in case checksum fails
       - v1-gradle-{{ .Branch }}-{{ checksum "build.gradle" }}-
       - v1-gradle-{{ .Branch }}-
