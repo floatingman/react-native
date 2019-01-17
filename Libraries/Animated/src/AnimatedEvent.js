@@ -80,7 +80,7 @@ function attachNativeEvent(
 class AnimatedEvent {
   _argMapping: Array<?Mapping>;
   _listeners: Array<Function> = [];
-  _callListeners: Function;
+  _callListeners: Function = this._callListeners.bind(this);
   _attachedEvent: ?{
     detach: () => void,
   };
@@ -91,7 +91,6 @@ class AnimatedEvent {
     if (config.listener) {
       this.__addListener(config.listener);
     }
-    this._callListeners = this._callListeners.bind(this);
     this._attachedEvent = null;
     this.__isNative = shouldUseNativeDriver(config);
 
